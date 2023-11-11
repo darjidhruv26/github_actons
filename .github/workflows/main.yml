@@ -27,6 +27,14 @@ jobs:
     #runs-on: [aws-ec2-node]
     runs-on: self-hosted
     steps:
+      - name: Install Docker
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y docker.io
+        sudo ln -s /usr/bin/docker /usr/local/bin/docker
+
+    - name: Pull Docker Image
+      run: docker pull dhruvdarji123/nodejs-app:latest
       - name: Pull image from docker hub
         run: docker pull dhruvdarji123/nodejs-app:latest
       - name: Delete old container
