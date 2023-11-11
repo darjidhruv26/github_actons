@@ -27,11 +27,9 @@ jobs:
     #runs-on: [aws-ec2-node]
     runs-on: self-hosted
     steps:
-      - name: Install Docker
+      - name: Docker Check
         run: |
           sudo apt-get update
-          sudo apt-get install -y docker.io
-          sudo ln -s /usr/bin/docker /usr/local/bin/docker
           sudo chmod 777 /var/run/docker.sock
       - name: Pull image from docker hub
         run: docker pull dhruvdarji123/nodejs-app:latest
